@@ -9,7 +9,7 @@
 <style>
   body {
     margin: 0;
-    background: #191919; /* OUTER BACKGROUND (Notion blend) */
+    background: #191919;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,33 +17,20 @@
     font-family: "Times New Roman", serif;
   }
 
-  /* OUTER WRAPPER */
-  .frame {
-    width: 220px;
-    height: 220px;
-    background: #191919;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* INNER CALENDAR CARD */
   .widget {
-    width: 200px;
-    height: 200px;
-    background: #000000; /* PITCH BLACK CALENDAR */
+    width: 172px;   /* reduced again for squarer feel */
+    background: #000000;
     border-radius: 16px;
-    padding: 8px;
+    padding: 10px;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
   }
 
   .header {
     text-align: center;
     font-size: 13px;
     color: white;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .days {
@@ -53,15 +40,13 @@
     opacity: 0.7;
     text-align: center;
     color: white;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
   }
 
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
-    flex: 1;
-    align-content: start;
   }
 
   .cell {
@@ -70,7 +55,7 @@
     padding: 2px 0;
     border-radius: 4px;
     color: white;
-    transition: 0.15s;
+    line-height: 1;
   }
 
   .cell:hover {
@@ -86,17 +71,15 @@
 
 <body>
 
-<div class="frame">
-  <div class="widget">
-    <div class="header" id="month"></div>
+<div class="widget">
+  <div class="header" id="month"></div>
 
-    <div class="days">
-      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
-      <div>Thu</div><div>Fri</div><div>Sat</div>
-    </div>
-
-    <div class="grid" id="grid"></div>
+  <div class="days">
+    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+    <div>Thu</div><div>Fri</div><div>Sat</div>
   </div>
+
+  <div class="grid" id="grid"></div>
 </div>
 
 <script>
