@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Calendar</title>
+
+<style>
+  body {
+    margin: 0;
+    background: #000000;
+    color: #ffffff;
+    font-family: "Times New Roman", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .widget {
+    width: 320px;
+    padding: 20px;
+    border-radius: 14px;
+    background: #050505;
+  }
+
+  .header {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+
+  .cell {
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+
+  .cell:hover {
+    background: #2d233b;
+  }
+
+  .today {
+    background: #2d233b;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="widget">
+  <div class="header" id="month"></div>
+
+  <div class="days">
+    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+    <div>Thu</div><div>Fri</div><div>Sat</div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+const monthNames = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December"
+];
+
+const now = new Date();
+const year = now.getFullYear();
+const month = now.getMonth();
+
+document.getElementById("month").textContent =
+  monthNames[month] + " " + year;
+
+const firstDay = new Date(year, month, 1).getDay();
+const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+const grid = document.getElementById("grid");
+
+for (let i = 0; i < firstDay; i++) {
+  grid.appendChild(document.createElement("div"));
+}
+
+for (let day = 1; day <= daysInMonth; day++) {
+  const cell = document.createElement("div");
+  cell.classList.add("cell");
+  cell.textContent = day;
+
+  if (
+    day === now.getDate() &&
+    month === now.getMonth() &&
+    year === now.getFullYear()
+  ) {
+    cell.classList.add("today");
+  }
+
+  grid.appendChild(cell);
+}
+</script>
+
+</body>
+</html>
