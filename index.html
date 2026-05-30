@@ -9,20 +9,31 @@
 <style>
   body {
     margin: 0;
-    background: #000000;
-    font-family: "Times New Roman", serif;
+    background: #191919; /* OUTER BACKGROUND (Notion blend) */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: "Times New Roman", serif;
   }
 
-  .widget {
-    width: 240px;
-    height: 240px;
-    border-radius: 18px;
+  /* OUTER WRAPPER */
+  .frame {
+    width: 220px;
+    height: 220px;
     background: #191919;
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* INNER CALENDAR CARD */
+  .widget {
+    width: 200px;
+    height: 200px;
+    background: #000000; /* PITCH BLACK CALENDAR */
+    border-radius: 16px;
+    padding: 8px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -30,34 +41,34 @@
 
   .header {
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     color: white;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    font-size: 9px;
+    font-size: 8px;
     opacity: 0.7;
     text-align: center;
-    margin-bottom: 4px;
     color: white;
+    margin-bottom: 2px;
   }
 
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 3px;
+    gap: 2px;
     flex: 1;
     align-content: start;
   }
 
   .cell {
     text-align: center;
-    font-size: 10px;
-    padding: 3px 0;
-    border-radius: 5px;
+    font-size: 9px;
+    padding: 2px 0;
+    border-radius: 4px;
     color: white;
     transition: 0.15s;
   }
@@ -75,15 +86,17 @@
 
 <body>
 
-<div class="widget">
-  <div class="header" id="month"></div>
+<div class="frame">
+  <div class="widget">
+    <div class="header" id="month"></div>
 
-  <div class="days">
-    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
-    <div>Thu</div><div>Fri</div><div>Sat</div>
+    <div class="days">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+      <div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+
+    <div class="grid" id="grid"></div>
   </div>
-
-  <div class="grid" id="grid"></div>
 </div>
 
 <script>
@@ -125,7 +138,5 @@ for (let day = 1; day <= daysInMonth; day++) {
 }
 </script>
 
-</body>
-</html>
 </body>
 </html>
