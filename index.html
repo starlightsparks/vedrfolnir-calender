@@ -10,7 +10,6 @@
   body {
     margin: 0;
     background: #000000;
-    color: #ffffff;
     font-family: "Times New Roman", serif;
     display: flex;
     justify-content: center;
@@ -19,37 +18,46 @@
   }
 
   .widget {
-    width: 320px;
-    padding: 20px;
-    border-radius: 14px;
+    width: 260px;
+    height: 260px;
+    padding: 14px;
+    border-radius: 20px;
     background: #050505;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .header {
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-size: 16px;
+    color: white;
+    text-align: center;
   }
 
   .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    font-size: 12px;
+    font-size: 10px;
     opacity: 0.7;
-    margin-bottom: 8px;
+    text-align: center;
   }
 
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+    gap: 4px;
+    flex: 1;
+    align-content: center;
   }
 
   .cell {
     text-align: center;
-    padding: 8px 0;
+    padding: 4px 0;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 11px;
     transition: 0.2s;
+    color: white;
   }
 
   .cell:hover {
